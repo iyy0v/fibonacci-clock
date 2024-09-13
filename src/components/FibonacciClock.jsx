@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 
 export default function FibonacciClock({ time }) {
 
@@ -22,7 +22,7 @@ export default function FibonacciClock({ time }) {
     const [hourTiles, setHourTiles] = useState([1,1,2,3,5])
     const [minTiles, setMinTiles] = useState([1,1,2,3,5])
 
-
+    // Determinate which tiles will be used
     function calculateTiles(number) {
         const tiles = [1,1,2,3,5]
         let n = number
@@ -45,17 +45,12 @@ export default function FibonacciClock({ time }) {
         }
     }, [time])
 
-    useEffect(() => {
-        console.log("tiles " + ((hourTiles[0] === 0 && minTiles[0] === 0) ? "blue" : (hourTiles[0] === 0 && "red") || (minTiles[0] === 0 && "green") || ""))
-    }, [hourTiles, minTiles]);
-
 
     return <div id="fibonacci-clock">
-        {`${hourTiles} : ${minTiles}`}
-        <div className={"tiles " + ((hourTiles[0] === 0 && minTiles[0] === 0) ? "blue" : (hourTiles[0] === 0 && "red") || (minTiles[0] === 0 && "green") || "")}>1</div>
-        <div className={"tiles " + ((hourTiles[1] === 0 && minTiles[1] === 0) ? "blue" : (hourTiles[1] === 0 && "red") || (minTiles[1] === 0 && "green") || "")}>1</div>
-        <div className={"tiles " + ((hourTiles[2] === 0 && minTiles[2] === 0) ? "blue" : (hourTiles[2] === 0 && "red") || (minTiles[2] === 0 && "green") || "")}>2</div>
-        <div className={"tiles " + ((hourTiles[3] === 0 && minTiles[3] === 0) ? "blue" : (hourTiles[3] === 0 && "red") || (minTiles[3] === 0 && "green") || "")}>3</div>
-        <div className={"tiles " + ((hourTiles[4] === 0 && minTiles[4] === 0) ? "blue" : (hourTiles[4] === 0 && "red") || (minTiles[4] === 0 && "green") || "")}>5</div>
+        {[1,1,2,3,5].map((value, i) => (
+            <div id={`tile${i + 1}`} className={"tiles " + ((hourTiles[i] === 0 && minTiles[i] === 0) ? "blue" : (hourTiles[i] === 0 && "red") || (minTiles[i] === 0 && "green") || "")}>
+                {value}
+            </div>
+        ))}
     </div>
 }

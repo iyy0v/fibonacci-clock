@@ -1,5 +1,6 @@
 {
   "name": "fibonacci-clock",
+  "author": "Ayoub NAIT MIHOUB",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

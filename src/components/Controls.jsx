@@ -5,17 +5,17 @@ export default function DigitalClock({ time, setTime }) {
     const MINUTES = 5;
 
     function incMinutes() {
-        const newTime = new Date(time.setMinutes(time.getMinutes() - MINUTES));
-        setTime(newTime);
-    }
-
-    function decMinutes() {
         const newTime = new Date(time.setMinutes(time.getMinutes() + MINUTES));
         setTime(newTime);
     }
 
+    function decMinutes() {
+        const newTime = new Date(time.setMinutes(time.getMinutes() - MINUTES));
+        setTime(newTime);
+    }
+
     return <div id="controls">
-        <button onClick={incMinutes}>Back</button>
-        <button onClick={decMinutes}>Next</button>
+        <button onClick={decMinutes}>Back</button>
+        <button onClick={incMinutes}>Next</button>
     </div>
 }

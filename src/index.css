@@ -1,4 +1,6 @@
 body {
+  height: 100vh;
+  min-height: fit-content;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -7,18 +9,97 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+#app {
+  height: 100vh;
+  min-height: fit-content;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+#digital-clock {
+  font-size: 4rem;
+  font-weight: bold;
+}
+
+#fibonacci-clock {
+  width: 400px;
+  max-width: 100vw;
+  height: 250px;
+  max-height: calc(100vw * 0.625);
+  display: grid;
+  grid-template: repeat(5, 1fr) / repeat(8, 1fr);
+}
+
+#tile1 {
+  grid-row-start: 2;
+  grid-row-end: 3;
+  grid-column-start: 3;
+  grid-column-end: 4;
+}
+#tile2 {
+  grid-row-start: 1;
+  grid-row-end: 2;
+  grid-column-start: 3;
+  grid-column-end: 4;
+}
+#tile3 {
+  grid-row-start: 1;
+  grid-row-end: 3;
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+#tile4 {
+  grid-row-start: 3;
+  grid-row-end: 6;
+  grid-column-start: 1;
+  grid-column-end: 4;
+}
+#tile5 {
+  grid-row-start: 1;
+  grid-row-end: 6;
+  grid-column-start: 4;
+  grid-column-end: 9;
+}
+
 .tiles {
-  width: 30px;
-  height: 30px;
+  width: 100%;
+  height: 100%;
   border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  font-size: 1.4em;
 }
 
 .red {
   background-color: red;
+  color: white;
 }
 .green {
-  background-color: green;
+  background-color: lawngreen;
+  color: white;
 }
 .blue {
   background-color: blue;
+  color: white;
+}
+
+#controls {
+  display: flex;
+  gap: 4rem;
+}
+
+#controls button {
+  padding: 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: large;
 }
